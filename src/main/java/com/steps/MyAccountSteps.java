@@ -1,5 +1,7 @@
 package com.steps;
 
+import org.junit.Assert;
+
 import com.entity.EntityFactory;
 import com.entity.Photo;
 
@@ -12,11 +14,19 @@ public class MyAccountSteps extends AbstractSteps {
 	@Step
 	public void uploadPhoto() {
 		Photo photo = EntityFactory.getPhotoInstance();
-		getMyAccountPage().clickOnUploadYourPhotosButton();
-		getUploadPage().addPhoto("/home/corneliabodea/Pictures/photo.png");
+		getPhotosPage().clickOnUploadYourPhotosButton();
+		getUploadPage().addPhoto("/home/seluser/upload/photo.png");
 		getUploadPage().enterLocationValue((photo.getLocation()));
 		getUploadPage().selectPublishCheckbox();
 		getUploadPage().clickOnPublishButton();
+	}
+	
+	@Step
+	public void verifyPhotoUploaded() {
+		String expectedMessage = "Successfully uploaded 1 photo.";
+		String actualMessage = getPhotosPage().getInfoMessageForUploadedPhoto();
+		
+		Assert.assertTrue("Photo wasn't uploaded", expectedMessage.equals(actualMessage));
 	}
 
 }

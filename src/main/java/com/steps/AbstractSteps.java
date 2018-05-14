@@ -2,8 +2,8 @@ package com.steps;
 
 import com.pages.HeaderPage;
 import com.pages.LoginPage;
-import com.pages.MyAccountPage;
 import com.pages.UploadPage;
+import com.pages.account.PhotosPage;
 
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -23,12 +23,12 @@ public class AbstractSteps extends ScenarioSteps {
 		return getPages().currentPageAt(LoginPage.class);
 	}
 	
-	public MyAccountPage getMyAccountPage() {
-		return getPages().currentPageAt( MyAccountPage.class);
+	public PhotosPage getPhotosPage() {
+		return getPages().currentPageAt(PhotosPage.class);
 	}
 	
 	public UploadPage getUploadPage() {
-		return getPages().currentPageAt( UploadPage.class);
+		return getPages().currentPageAt(UploadPage.class);
 	}
 
 }
