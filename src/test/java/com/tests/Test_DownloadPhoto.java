@@ -39,14 +39,13 @@ public class Test_DownloadPhoto {
 		headerSteps.navigateToLoginPage();
 		loginSteps.login(EnvironmentConstants.USERNAME, EnvironmentConstants.PASSWORD);
 		myAccountSteps.uploadPhoto();
-		myAccountSteps.verifyPhotoUploaded();
 	}
 	
 	@Test
 	public void test_DownloadPhoto() {
 		abstractSteps.navigateTo(EnvironmentConstants.BASE_URL);
 		headerSteps.navigateToYourProfilePage();
-		myAccountSteps.openLasUploadedPhotoDetails();
+		myAccountSteps.openLastUploadedPhotoDetails();
 		photoDetailsSteps.downloadPhoto();
 		photoDetailsSteps.verifyDownloadedDocument();
 	}

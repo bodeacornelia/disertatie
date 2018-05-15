@@ -26,5 +26,10 @@ public class PhotoDetailsSteps extends AbstractSteps {
 		System.out.println("Actual: " + actualChecksum);
 		Assert.assertTrue("Downloaded photo isn't the one expected", expectedChecksum.equals(actualChecksum));
 	}
+	
+	@Step
+	public void deletPhoto() {
+		getPhotoDetailsPage().deletePhoto();
+	}
 
 }

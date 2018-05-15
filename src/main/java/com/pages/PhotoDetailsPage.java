@@ -2,8 +2,6 @@ package com.pages;
 
 import org.openqa.selenium.By;
 
-import com.tools.utils.FileUtils;
-
 import net.thucydides.core.pages.PageObject;
 
 public class PhotoDetailsPage extends PageObject{
@@ -12,8 +10,11 @@ public class PhotoDetailsPage extends PageObject{
 		getDriver().findElement(By.cssSelector("div.btn-primary.btn--lg.btn--splitted")).click();
 	}
 	
-	public void verifyDownloadedPhoto() {
-		FileUtils.calculateFileChecksum("/home/corneliabodea/disertatie/disertatiePractic/docker/upload/photo.png");
+	public void deletePhoto() {
+		getDriver().findElement(By.cssSelector("form.button_to input.link")).click();
 	}
 	
+	public void clickOnAddPhotoTagsButton() {
+		getDriver().findElement(By.cssSelector("a.js-add-tags-link")).click();
+	}
 }
