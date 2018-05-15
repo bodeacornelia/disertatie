@@ -10,5 +10,10 @@ public class HeaderSteps extends AbstractSteps {
 	public void navigateToLoginPage() {
 		getHeaderPage().selectHoveredDropdownValue("Login");
 	}
+	
+	@Step
+	public void navigateToYourProfilePage() {
+		getHeaderPage().selectHoveredDropdownValue("Your Profile");
+	}
 
 }

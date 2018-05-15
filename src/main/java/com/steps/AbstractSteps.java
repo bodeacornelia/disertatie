@@ -1,7 +1,13 @@
 package com.steps;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+
 import com.pages.HeaderPage;
 import com.pages.LoginPage;
+import com.pages.PhotoDetailsPage;
 import com.pages.UploadPage;
 import com.pages.account.PhotosPage;
 
@@ -31,4 +37,28 @@ public class AbstractSteps extends ScenarioSteps {
 		return getPages().currentPageAt(UploadPage.class);
 	}
 
+	public PhotoDetailsPage getPhotoDetailsPage() {
+		return getPages().currentPageAt(PhotoDetailsPage.class);
+	}
+	
+	public void cleanDownloadsDirectory() {
+		String downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/docker/Downloads";
+		try {
+			FileUtils.cleanDirectory(new File(downloadsdirectory));
+		} catch (IOException e) {
+			System.out.println("Could not clean directory.");
+			e.printStackTrace();
+		}
+	}
+	
+	public File[] getFilesFromDownloadsDirectory() {
+		String downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/docker/Downloads";
+		File folder = new File(downloadsdirectory);
+		return folder.listFiles();
+	}
+	
+	public String getDownloadedDocumentName() {
+		File[] listOfFiles = getFilesFromDownloadsDirectory();
+		return listOfFiles[0].getName();
+	}
 }
