@@ -23,6 +23,6 @@ public class PhotosPage extends PageObject{
 	
 	public void openLastUploadedPhotoDetails() {
 		List<WebElement> photoList = getDriver().findElements(By.cssSelector("div.photos article a img"));
-		photoList.get(photoList.size()-1).click();
+		photoList.get(0).click();
 	}
 }

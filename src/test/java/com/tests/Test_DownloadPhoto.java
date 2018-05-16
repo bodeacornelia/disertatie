@@ -1,5 +1,6 @@
 package com.tests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -39,6 +40,8 @@ public class Test_DownloadPhoto {
 		headerSteps.navigateToLoginPage();
 		loginSteps.login(EnvironmentConstants.USERNAME, EnvironmentConstants.PASSWORD);
 		myAccountSteps.uploadPhoto();
+		myAccountSteps.openLastUploadedPhotoDetails();
+		photoDetailsSteps.addPhotoTag();
 	}
 	
 	@Test
@@ -48,5 +51,10 @@ public class Test_DownloadPhoto {
 		myAccountSteps.openLastUploadedPhotoDetails();
 		photoDetailsSteps.downloadPhoto();
 		photoDetailsSteps.verifyDownloadedDocument();
+	}
+	
+	@After
+	public void deleteUploadedPhoto() {
+		photoDetailsSteps.deletePhoto();
 	}
 }

@@ -40,11 +40,12 @@ public class Test_UploadPhoto {
 		loginSteps.login(EnvironmentConstants.USERNAME, EnvironmentConstants.PASSWORD);
 		myAccountSteps.uploadPhoto();
 		myAccountSteps.verifyInfoMessageForUploadedPhoto();
+		myAccountSteps.openLastUploadedPhotoDetails();
+		photoDetailsSteps.addPhotoTag();
 	}
 	
 	@After
 	public void deleteUploadedPhoto() {
-		myAccountSteps.openLastUploadedPhotoDetails();
-		photoDetailsSteps.deletPhoto();
+		photoDetailsSteps.deletePhoto();
 	}
 }

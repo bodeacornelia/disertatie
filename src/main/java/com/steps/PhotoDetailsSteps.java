@@ -2,12 +2,11 @@ package com.steps;
 
 import org.junit.Assert;
 
-import com.tools.utils.FileUtils;
-
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.StepGroup;
 
-public class PhotoDetailsSteps extends AbstractSteps {
+public class PhotoDetailsSteps extends GeneralSteps {
 
 	private static final long serialVersionUID = 1L;
 
@@ -19,17 +18,22 @@ public class PhotoDetailsSteps extends AbstractSteps {
 
 	@Step
 	public void verifyDownloadedDocument() {
-		String expectedChecksum = (String) Serenity.getCurrentSession().get("checksum");
-		String actualChecksum = FileUtils.calculateFileChecksum(
-				"/home/corneliabodea/disertatie/disertatiePractic/docker/Downloads/" + getDownloadedDocumentName());
-		System.out.println("Expected: " + expectedChecksum);
-		System.out.println("Actual: " + actualChecksum);
-		Assert.assertTrue("Downloaded photo isn't the one expected", expectedChecksum.equals(actualChecksum));
+		String expectedDownloadedDocName = (String)Serenity.getCurrentSession().get("tagValue");
+		String actualDownloadedDocName = getDownloadedDocumentName();
+		Assert.assertTrue("Downloaded photo isn't the one expected", actualDownloadedDocName.contains(expectedDownloadedDocName));
+	}
+	
+	@StepGroup
+	public void deletePhoto() {
+		getPhotoDetailsPage().deletePhoto();
+		clickOnOkButtonFromAlertWindow();
 	}
 	
 	@Step
-	public void deletPhoto() {
-		getPhotoDetailsPage().deletePhoto();
+	public void addPhotoTag() {
+		getPhotoDetailsPage().clickOnAddPhotoTagsButton();
+		getPhotoDetailsPage().enterTagValue();
+		getPhotoDetailsPage().clickOnSubmitTagsButton();
 	}
 
 }

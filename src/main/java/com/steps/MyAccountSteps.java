@@ -15,11 +15,7 @@ public class MyAccountSteps extends AbstractSteps {
 	public void uploadPhoto() {
 		Photo photo = EntityFactory.getPhotoInstance();
 		getPhotosPage().clickOnUploadYourPhotosButton();
-		getUploadPage().addPhoto("/home/corneliabodea/disertatie/disertatiePractic/docker/upload/photo.png");
-//		String expectedChecksum = FileUtils.calculateFileChecksum("/home/corneliabodea/disertatie/disertatiePractic/docker/upload/photo.png");
-//		System.out.println("Expected Checksum: " + expectedChecksum);
-//		Serenity.getCurrentSession().put("checksum", expectedChecksum);
-//		getUploadPage().addPhoto("/home/seluser/upload/photo.png");
+		getUploadPage().addPhoto(photo.getPath());
 		getUploadPage().enterLocationValue((photo.getLocation()));
 		getUploadPage().selectPublishCheckbox();
 		getUploadPage().clickOnPublishButton();

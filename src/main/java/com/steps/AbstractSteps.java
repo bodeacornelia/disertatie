@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 
+import com.pages.GeneralPage;
 import com.pages.HeaderPage;
 import com.pages.LoginPage;
 import com.pages.PhotoDetailsPage;
@@ -39,6 +40,10 @@ public class AbstractSteps extends ScenarioSteps {
 
 	public PhotoDetailsPage getPhotoDetailsPage() {
 		return getPages().currentPageAt(PhotoDetailsPage.class);
+	}
+	
+	public GeneralPage getGeneralPage() {
+		return getPages().currentPageAt(GeneralPage.class);
 	}
 	
 	public void cleanDownloadsDirectory() {
