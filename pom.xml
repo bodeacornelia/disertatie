@@ -111,7 +111,7 @@
 			<id>linux</id>
 			<activation>
 				<os>
-					<family>!windows</family>
+					<family>unix</family>
 				</os>
 			</activation>
 			<properties>

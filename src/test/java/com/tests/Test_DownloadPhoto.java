@@ -1,6 +1,5 @@
 package com.tests;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +17,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class Test_DownloadPhoto {
+public class Test_DownloadPhoto extends BaseTest{
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -53,8 +52,8 @@ public class Test_DownloadPhoto {
 		photoDetailsSteps.verifyDownloadedDocument();
 	}
 	
-	@After
-	public void deleteUploadedPhoto() {
-		photoDetailsSteps.deletePhoto();
-	}
+//	@After
+//	public void deleteUploadedPhoto() {
+//		photoDetailsSteps.deletePhoto();
+//	}
 }

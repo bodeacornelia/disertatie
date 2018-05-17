@@ -18,17 +18,21 @@ public class PhotoDetailsSteps extends GeneralSteps {
 
 	@Step
 	public void verifyDownloadedDocument() {
-		String expectedDownloadedDocName = (String)Serenity.getCurrentSession().get("tagValue");
+		String expectedDownloadedDocName = (String) Serenity.getCurrentSession().get("tag");
 		String actualDownloadedDocName = getDownloadedDocumentName();
-		Assert.assertTrue("Downloaded photo isn't the one expected", actualDownloadedDocName.contains(expectedDownloadedDocName));
+
+		Assert.assertTrue(
+				"Downloaded photo isn't the one expected. Expected: " + expectedDownloadedDocName + " Actual: "
+						+ actualDownloadedDocName,
+				actualDownloadedDocName.toLowerCase().contains(expectedDownloadedDocName.toLowerCase()));
 	}
-	
+
 	@StepGroup
 	public void deletePhoto() {
 		getPhotoDetailsPage().deletePhoto();
 		clickOnOkButtonFromAlertWindow();
 	}
-	
+
 	@Step
 	public void addPhotoTag() {
 		getPhotoDetailsPage().clickOnAddPhotoTagsButton();

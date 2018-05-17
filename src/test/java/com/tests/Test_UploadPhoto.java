@@ -1,5 +1,7 @@
 package com.tests;
 
+import java.security.NoSuchAlgorithmException;
+
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +19,7 @@ import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 
 @RunWith(SerenityRunner.class)
-public class Test_UploadPhoto {
+public class Test_UploadPhoto extends BaseTest{
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -34,7 +36,7 @@ public class Test_UploadPhoto {
 	public PhotoDetailsSteps photoDetailsSteps;
 
 	@Test
-	public void test_UploadPhoto() {
+	public void test_UploadPhoto() throws NoSuchAlgorithmException, Exception {
 		abstractSteps.navigateTo(EnvironmentConstants.BASE_URL);
 		headerSteps.navigateToLoginPage();
 		loginSteps.login(EnvironmentConstants.USERNAME, EnvironmentConstants.PASSWORD);

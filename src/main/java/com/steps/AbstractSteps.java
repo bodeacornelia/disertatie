@@ -25,15 +25,15 @@ public class AbstractSteps extends ScenarioSteps {
 	public HeaderPage getHeaderPage() {
 		return getPages().currentPageAt(HeaderPage.class);
 	}
-	
+
 	public LoginPage getLoginPage() {
 		return getPages().currentPageAt(LoginPage.class);
 	}
-	
+
 	public PhotosPage getPhotosPage() {
 		return getPages().currentPageAt(PhotosPage.class);
 	}
-	
+
 	public UploadPage getUploadPage() {
 		return getPages().currentPageAt(UploadPage.class);
 	}
@@ -41,13 +41,13 @@ public class AbstractSteps extends ScenarioSteps {
 	public PhotoDetailsPage getPhotoDetailsPage() {
 		return getPages().currentPageAt(PhotoDetailsPage.class);
 	}
-	
+
 	public GeneralPage getGeneralPage() {
 		return getPages().currentPageAt(GeneralPage.class);
 	}
-	
+
 	public void cleanDownloadsDirectory() {
-		String downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/docker/Downloads";
+		String downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/disertatie/resources/downloads";
 		try {
 			FileUtils.cleanDirectory(new File(downloadsdirectory));
 		} catch (IOException e) {
@@ -55,13 +55,13 @@ public class AbstractSteps extends ScenarioSteps {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public File[] getFilesFromDownloadsDirectory() {
-		String downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/docker/Downloads";
+		String downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/disertatie/resources/downloads";
 		File folder = new File(downloadsdirectory);
 		return folder.listFiles();
 	}
-	
+
 	public String getDownloadedDocumentName() {
 		File[] listOfFiles = getFilesFromDownloadsDirectory();
 		return listOfFiles[0].getName();

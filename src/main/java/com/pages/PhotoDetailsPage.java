@@ -37,7 +37,7 @@ public class PhotoDetailsPage extends PageObject {
 
 	public void enterTagValue() {
 		String value = FieldGenerators.generateRandomString(12, Mode.ALPHA);
-		Serenity.getCurrentSession().put("tagValue", value);
+		Serenity.getCurrentSession().put("tag", value);
 		String command = "document.getElementsByName('tags')[0].value = '" + value + "'";
 		evaluateJavascript(command);
 		waitABit(3000);
