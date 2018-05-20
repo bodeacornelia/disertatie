@@ -1,6 +1,9 @@
 package com.pages;
 
-import org.openqa.selenium.By;
+import javax.activation.FileDataSource;
+
+//import org.openqa.selenium.By;
+import net.serenitybdd.core.annotations.findby.By;
 import org.openqa.selenium.WebElement;
 
 import com.tools.FieldGenerators;
@@ -48,4 +51,27 @@ public class PhotoDetailsPage extends PageObject {
 
 	}
 
+	public String getPhotoTag() {
+		return getDriver().findElement(By.cssSelector("div.box ul li a.btn-light")).getText();
+	}
+
+	public void clickOnAddNewCollectionButton() {
+		getDriver().findElement(By.cssSelector("button[class*='btn-quiet js-collect']")).click();
+	}
+
+	public void clickOnCreateCollectionButton() {
+		getDriver().findElement(By.cssSelector("button.btn-quiet.btn--sm")).click();
+	}
+	
+	public void clickOnCreateCollectionSubmitButton() {
+		getDriver().findElement(By.cssSelector("button.btn-secondary.form__button")).click();
+	}
+
+
+	public void enterCollectionTitle() {
+		String title = FieldGenerators.generateRandomString(10, Mode.ALPHA);
+		getDriver().findElement(By.cssSelector("#collection_title")).sendKeys(title);
+
+		Serenity.getCurrentSession().put("collectionTitle", title);
+	}
 }

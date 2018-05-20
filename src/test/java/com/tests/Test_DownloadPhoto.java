@@ -39,8 +39,6 @@ public class Test_DownloadPhoto extends BaseTest{
 		headerSteps.navigateToLoginPage();
 		loginSteps.login(EnvironmentConstants.USERNAME, EnvironmentConstants.PASSWORD);
 		myAccountSteps.uploadPhoto();
-		myAccountSteps.openLastUploadedPhotoDetails();
-		photoDetailsSteps.addPhotoTag();
 	}
 	
 	@Test

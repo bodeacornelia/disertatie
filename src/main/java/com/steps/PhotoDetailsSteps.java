@@ -2,6 +2,8 @@ package com.steps;
 
 import org.junit.Assert;
 
+import com.entity.Photo;
+
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
@@ -18,13 +20,13 @@ public class PhotoDetailsSteps extends GeneralSteps {
 
 	@Step
 	public void verifyDownloadedDocument() {
-		String expectedDownloadedDocName = (String) Serenity.getCurrentSession().get("tag");
+		Photo photo = (Photo) Serenity.getCurrentSession().get("photo");
 		String actualDownloadedDocName = getDownloadedDocumentName();
 
 		Assert.assertTrue(
-				"Downloaded photo isn't the one expected. Expected: " + expectedDownloadedDocName + " Actual: "
+				"Downloaded photo isn't the one expected. Expected: " + photo.getTag() + " Actual: "
 						+ actualDownloadedDocName,
-				actualDownloadedDocName.toLowerCase().contains(expectedDownloadedDocName.toLowerCase()));
+				actualDownloadedDocName.toLowerCase().contains(photo.getTag().toLowerCase()));
 	}
 
 	@StepGroup
@@ -39,5 +41,24 @@ public class PhotoDetailsSteps extends GeneralSteps {
 		getPhotoDetailsPage().enterTagValue();
 		getPhotoDetailsPage().clickOnSubmitTagsButton();
 	}
+
+	@Step
+	public void verifyPhotoTagWasAdded() {
+		Photo photo = (Photo) Serenity.getCurrentSession().get("photo");
+		String actualTag = getPhotoDetailsPage().getPhotoTag();
+
+		Assert.assertTrue("Tag value is not correctly displayed. Expected: " + photo.getTag() + " Actual: " + actualTag,
+				actualTag.toLowerCase().equals(photo.getTag().toLowerCase()));
+	}
+	
+	@Step
+	public void addNewCollection() {
+		getPhotoDetailsPage().clickOnAddNewCollectionButton();
+		getPhotoDetailsPage().clickOnCreateCollectionButton();
+		getPhotoDetailsPage().enterCollectionTitle();
+		getPhotoDetailsPage().clickOnCreateCollectionSubmitButton();
+	}
+	
+
 
 }

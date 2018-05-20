@@ -66,4 +66,5 @@ public class AbstractSteps extends ScenarioSteps {
 		File[] listOfFiles = getFilesFromDownloadsDirectory();
 		return listOfFiles[0].getName();
 	}
+	
 }

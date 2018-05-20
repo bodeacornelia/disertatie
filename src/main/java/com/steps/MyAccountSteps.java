@@ -16,6 +16,7 @@ public class MyAccountSteps extends AbstractSteps {
 		Photo photo = EntityFactory.getPhotoInstance();
 		getPhotosPage().clickOnUploadYourPhotosButton();
 		getUploadPage().addPhoto(photo.getPath());
+		getUploadPage().enterTagValue(photo.getTag());
 		getUploadPage().enterLocationValue((photo.getLocation()));
 		getUploadPage().selectPublishCheckbox();
 		getUploadPage().clickOnPublishButton();

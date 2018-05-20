@@ -10,6 +10,6 @@ public class BaseTest {
 
 	@Before
 	public void setup() {
-//		 System.setProperty("isZalenium", "false");
+		 System.setProperty("isZalenium", "false");
 	}
 }

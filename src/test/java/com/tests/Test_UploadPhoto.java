@@ -1,7 +1,5 @@
 package com.tests;
 
-import java.security.NoSuchAlgorithmException;
-
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,14 +34,14 @@ public class Test_UploadPhoto extends BaseTest{
 	public PhotoDetailsSteps photoDetailsSteps;
 
 	@Test
-	public void test_UploadPhoto() throws NoSuchAlgorithmException, Exception {
+	public void test_UploadPhoto() {
 		abstractSteps.navigateTo(EnvironmentConstants.BASE_URL);
 		headerSteps.navigateToLoginPage();
 		loginSteps.login(EnvironmentConstants.USERNAME, EnvironmentConstants.PASSWORD);
 		myAccountSteps.uploadPhoto();
 		myAccountSteps.verifyInfoMessageForUploadedPhoto();
 		myAccountSteps.openLastUploadedPhotoDetails();
-		photoDetailsSteps.addPhotoTag();
+		photoDetailsSteps.verifyPhotoTagWasAdded();
 	}
 	
 	@After

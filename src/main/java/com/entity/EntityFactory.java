@@ -4,6 +4,8 @@ import com.tools.FieldGenerators;
 import com.tools.FieldGenerators.Mode;
 import com.tools.constants.EnvironmentConstants;
 
+import net.serenitybdd.core.Serenity;
+
 public class EntityFactory {
 
 	public static Photo getPhotoInstance() {
@@ -16,6 +18,8 @@ public class EntityFactory {
 		}else {
 			photo.setPath(EnvironmentConstants.FILE_PATH);
 		}
+		
+		Serenity.getCurrentSession().put("photo", photo);
 
 		return photo;
 	}
