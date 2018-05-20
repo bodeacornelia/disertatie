@@ -1,15 +1,13 @@
 package com.pages;
 
-import javax.activation.FileDataSource;
-
-//import org.openqa.selenium.By;
-import net.serenitybdd.core.annotations.findby.By;
 import org.openqa.selenium.WebElement;
 
 import com.tools.FieldGenerators;
 import com.tools.FieldGenerators.Mode;
 
 import net.serenitybdd.core.Serenity;
+//import org.openqa.selenium.By;
+import net.serenitybdd.core.annotations.findby.By;
 import net.thucydides.core.pages.PageObject;
 
 public class PhotoDetailsPage extends PageObject {
