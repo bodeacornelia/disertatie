@@ -5,6 +5,7 @@ import org.junit.Assert;
 import com.entity.EntityFactory;
 import com.entity.Photo;
 
+import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Step;
 
 public class MyAccountSteps extends AbstractSteps {
@@ -33,6 +34,12 @@ public class MyAccountSteps extends AbstractSteps {
 	@Step
 	public void openLastUploadedPhotoDetails() {
 		getPhotosPage().openLastUploadedPhotoDetails();
+	}
+	
+	@Step
+	public void openCollection() {
+		String collectionTitle = (String)Serenity.getCurrentSession().get("collectionTitle");
+		getCollectionsPage().openCollection(collectionTitle);
 	}
 
 }

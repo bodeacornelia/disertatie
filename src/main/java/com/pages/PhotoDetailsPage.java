@@ -60,16 +60,19 @@ public class PhotoDetailsPage extends PageObject {
 	public void clickOnCreateCollectionButton() {
 		getDriver().findElement(By.cssSelector("button.btn-quiet.btn--sm")).click();
 	}
-	
+
 	public void clickOnCreateCollectionSubmitButton() {
 		getDriver().findElement(By.cssSelector("button.btn-secondary.form__button")).click();
 	}
-
 
 	public void enterCollectionTitle() {
 		String title = FieldGenerators.generateRandomString(10, Mode.ALPHA);
 		getDriver().findElement(By.cssSelector("#collection_title")).sendKeys(title);
 
 		Serenity.getCurrentSession().put("collectionTitle", title);
+	}
+
+	public void clickOnViewYourCollections() {
+		getDriver().findElement(By.cssSelector("p.collections__footer a")).click();
 	}
 }

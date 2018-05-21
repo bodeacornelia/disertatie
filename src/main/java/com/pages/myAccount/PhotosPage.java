@@ -1,4 +1,4 @@
-package com.pages.account;
+package com.pages.myAccount;
 
 import java.util.List;
 

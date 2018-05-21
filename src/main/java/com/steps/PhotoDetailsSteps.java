@@ -59,6 +59,9 @@ public class PhotoDetailsSteps extends GeneralSteps {
 		getPhotoDetailsPage().clickOnCreateCollectionSubmitButton();
 	}
 	
-
+   @Step
+   public void clickOnViewYourCollectionsButton() {
+	   getPhotoDetailsPage().clickOnViewYourCollections();
+   }
 
 }

@@ -5,12 +5,14 @@ import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
 
+import com.pages.CollectionPage;
 import com.pages.GeneralPage;
 import com.pages.HeaderPage;
 import com.pages.LoginPage;
 import com.pages.PhotoDetailsPage;
 import com.pages.UploadPage;
-import com.pages.account.PhotosPage;
+import com.pages.myAccount.CollectionsPage;
+import com.pages.myAccount.PhotosPage;
 
 import net.thucydides.core.steps.ScenarioSteps;
 
@@ -45,7 +47,15 @@ public class AbstractSteps extends ScenarioSteps {
 	public GeneralPage getGeneralPage() {
 		return getPages().currentPageAt(GeneralPage.class);
 	}
-
+	
+	public CollectionsPage getCollectionsPage() {
+		return getPages().currentPageAt(CollectionsPage.class);
+	}
+	
+	public CollectionPage getCollectionPage() {
+		return getPages().currentPageAt(CollectionPage.class);
+	}
+	
 	public void cleanDownloadsDirectory() {
 		String downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/disertatie/resources/downloads";
 		try {

@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import com.steps.AbstractSteps;
+import com.steps.CollectionSteps;
 import com.steps.HeaderSteps;
 import com.steps.LoginSteps;
 import com.steps.MyAccountSteps;
@@ -32,9 +33,12 @@ public class Test_CreateANewCollection extends BaseTest{
 	public MyAccountSteps myAccountSteps;
 	@Steps
 	public PhotoDetailsSteps photoDetailsSteps;
+	@Steps
+	public CollectionSteps collectionSteps;
+	
 	
 	@Before
-	public void dataPreparation() {
+	public void datePreparation() {
 		abstractSteps.navigateTo(EnvironmentConstants.BASE_URL);
 		headerSteps.navigateToLoginPage();
 		loginSteps.login(EnvironmentConstants.USERNAME, EnvironmentConstants.PASSWORD);
@@ -46,6 +50,10 @@ public class Test_CreateANewCollection extends BaseTest{
 		abstractSteps.navigateTo(EnvironmentConstants.BASE_URL);
 		headerSteps.navigateToYourProfilePage();
 		myAccountSteps.openLastUploadedPhotoDetails();
+		photoDetailsSteps.addNewCollection();
+		photoDetailsSteps.clickOnViewYourCollectionsButton();
+		myAccountSteps.openCollection();
+		collectionSteps.verifyCollectionTitle();
 	}
 	
 }
