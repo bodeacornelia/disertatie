@@ -29,7 +29,7 @@ public class UploadPage extends PageObject {
 	}
 
 	private void changeAddTagInputCss(String tag) {
-		String command = "document.querySelector('textarea[id*=tag-input]').removeAttribute('class')";
+		String command = "document.querySelector('textarea[id*=tag-input]').classList.remove('tag-editor-hidden-src')";
 		evaluateJavascript(command);
 		command = "document.querySelector('textarea[id*=tag-input]').value = '" + tag + "'";
 		evaluateJavascript(command);
