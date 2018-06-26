@@ -1,5 +1,6 @@
 package com.tests;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,15 +44,16 @@ public class Test_DownloadPhoto extends BaseTest{
 	
 	@Test
 	public void test_DownloadPhoto() {
-		abstractSteps.navigateTo(EnvironmentConstants.BASE_URL);
-		headerSteps.navigateToYourProfilePage();
 		myAccountSteps.openLastUploadedPhotoDetails();
 		photoDetailsSteps.downloadPhoto();
 		photoDetailsSteps.verifyDownloadedDocument();
 	}
 	
-//	@After
-//	public void deleteUploadedPhoto() {
-//		photoDetailsSteps.deletePhoto();
-//	}
+	@After
+	public void deleteUploadedPhoto() {
+		abstractSteps.navigateTo(EnvironmentConstants.BASE_URL);
+		headerSteps.navigateToYourProfilePage();
+		myAccountSteps.openLastUploadedPhotoDetails();
+		photoDetailsSteps.deletePhoto();
+	}
 }

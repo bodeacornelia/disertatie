@@ -37,7 +37,7 @@ public class FileUtils {
 		System.out.println("Expected: " + calculateFileChecksum(
 				"/home/corneliabodea/disertatie/disertatiePractic/docker/upload/photo.jpg"));
 		System.out.println("Actual: " + calculateFileChecksum(
-				"/home/corneliabodea/disertatie/disertatiePractic/docker/Downloads/nelly-1094789.jpg"));
+				"/home/corneliabodea/Downloads/hahha1-1109471.jpg"));
 	}
 
 	// public static byte[] calculateFileChecksum(String filePath) {

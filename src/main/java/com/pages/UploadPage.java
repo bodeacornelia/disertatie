@@ -3,16 +3,24 @@ package com.pages;
 import org.openqa.selenium.WebElement;
 
 import net.serenitybdd.core.annotations.findby.By;
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.pages.PageObject;
 
 public class UploadPage extends PageObject {
+	
+	@FindBy(css = "input[type=file]")
+	private WebElementFacade fileInput;
+	
+	@FindBy(css = "input[id*='location']")
+	private WebElementFacade locationInput;
 
 	public void addPhoto(String imagePath) {
-		getDriver().findElement(By.cssSelector("input[type=file]")).sendKeys(imagePath);
+		fileInput.sendKeys(imagePath);
 	}
 
 	public void enterLocationValue(String location) {
-		getDriver().findElement(By.cssSelector("input[id*='location']")).sendKeys(location);
+		locationInput.sendKeys(location);
 	}
 
 	public void enterTagValue(String tag) {
