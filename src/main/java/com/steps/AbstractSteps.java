@@ -57,6 +57,8 @@ public class AbstractSteps extends ScenarioSteps {
 	}
 
 	public void cleanDownloadsDirectory() {
+		File fileToUpload = new File(new File("").getAbsolutePath());
+		System.out.println("Hamsteeeerrrr=====" + fileToUpload);
 		String downloadsdirectory = "";
 		if (System.getProperty("isZalenium").equals("true")) {
 			downloadsdirectory = "/home/seluser/Downloads";
