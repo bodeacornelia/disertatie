@@ -47,17 +47,22 @@ public class AbstractSteps extends ScenarioSteps {
 	public GeneralPage getGeneralPage() {
 		return getPages().currentPageAt(GeneralPage.class);
 	}
-	
+
 	public CollectionsPage getCollectionsPage() {
 		return getPages().currentPageAt(CollectionsPage.class);
 	}
-	
+
 	public CollectionPage getCollectionPage() {
 		return getPages().currentPageAt(CollectionPage.class);
 	}
-	
+
 	public void cleanDownloadsDirectory() {
-		String downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/disertatie/resources/downloads";
+		String downloadsdirectory = "";
+		if (System.getProperty("isZalenium").equals("true")) {
+			downloadsdirectory = "/home/seluser/Downloads";
+		} else {
+			downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/disertatie/resources/downloads";
+		}
 		try {
 			FileUtils.cleanDirectory(new File(downloadsdirectory));
 		} catch (IOException e) {
@@ -76,5 +81,5 @@ public class AbstractSteps extends ScenarioSteps {
 		File[] listOfFiles = getFilesFromDownloadsDirectory();
 		return listOfFiles[0].getName();
 	}
-	
+
 }
