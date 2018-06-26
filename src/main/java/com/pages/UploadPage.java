@@ -9,14 +9,11 @@ import net.thucydides.core.pages.PageObject;
 
 public class UploadPage extends PageObject {
 	
-	@FindBy(css = "input[type=file]")
-	private WebElementFacade fileInput;
-	
 	@FindBy(css = "input[id*='location']")
 	private WebElementFacade locationInput;
 
 	public void addPhoto(String imagePath) {
-		fileInput.sendKeys(imagePath);
+		getDriver().findElement(By.cssSelector("input[type=file]")).sendKeys(imagePath);
 	}
 
 	public void enterLocationValue(String location) {

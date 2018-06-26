@@ -62,7 +62,7 @@ public class PhotoDetailsPage extends PageObject {
 	}
 
 	public void clickOnCreateCollectionSubmitButton() {
-		getDriver().findElement(By.cssSelector("button.btn-secondary.form__button")).click();
+		getDriver().findElement(By.cssSelector("button.btn-secondary")).click();
 	}
 
 	public void enterCollectionTitle() {
