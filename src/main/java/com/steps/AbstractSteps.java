@@ -61,7 +61,7 @@ public class AbstractSteps extends ScenarioSteps {
 		System.out.println("Hamsteeeerrrr=====" + fileToUpload);
 		String downloadsdirectory = "";
 		if (System.getProperty("isZalenium").equals("true")) {
-			downloadsdirectory = "/var/lib/jenkins/workspace/Downloads";
+			downloadsdirectory = "/root/Downloads";
 		} else {
 			downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/disertatie/resources/downloads";
 		}
@@ -76,7 +76,7 @@ public class AbstractSteps extends ScenarioSteps {
 	public File[] getFilesFromDownloadsDirectory() {
 		String downloadsdirectory = "";
 		if (System.getProperty("isZalenium").equals("true")) {
-			downloadsdirectory = "/var/lib/jenkins/workspace/Downloads";
+			downloadsdirectory = "/root/Downloads";
 		} else {
 			downloadsdirectory = "/home/corneliabodea/disertatie/disertatiePractic/disertatie/resources/downloads";
 		}
