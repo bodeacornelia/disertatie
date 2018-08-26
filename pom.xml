@@ -105,7 +105,7 @@
 			</activation>
 			<properties>
 				<webdriver.gecko.path>resources${file.separator}geckodriverLinux</webdriver.gecko.path>
-				<webdriver.chrome.path>resources${file.separator}chromedriverlinux237</webdriver.chrome.path>
+				<webdriver.chrome.path>resources${file.separator}chromedriver247</webdriver.chrome.path>
 				<webdriver.ie.path>resources${file.separator}chromedriver232</webdriver.ie.path>
 			</properties>
 		</profile>
